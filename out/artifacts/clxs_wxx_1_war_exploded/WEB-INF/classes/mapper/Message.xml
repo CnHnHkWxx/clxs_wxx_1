@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clxs.dao.MessageDao">
+
+    <sql id="Message">
+        id,work_id,right_now,new_time,new_id,update_time,update_id,content
+    </sql>
+
+    <select id="SelectByWorkId" resultType="com.clxs.dao.WorkDao">
+        select <include refid="Message"/>
+        from Message
+        where work_id =#{integer}
+        <if test="right_now!=0">
+            where right_now =#{integer}
+        </if>
+    </select>
+
+    <insert id="InsertByMessage" parameterType="com.clxs.pojo.Message">
+        insert into message
+        (work_id,new_time,new_id,content)
+        values (#{work_id,new_time,new_id,content})
+    </insert>
+
+</mapper>

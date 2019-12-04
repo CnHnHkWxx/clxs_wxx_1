@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--导航的持久层的接口的实现-->
+<mapper namespace="com.clxs.dao.GuideDao">
+
+    <sql id="Guide">
+        id,pid,work_id,right_now,new_time,new_id,update_time,update_id,name
+    </sql>
+
+<!--查询上架或下架的导航栏的内容-->
+    <select id="SelectByNow" resultType="com.clxs.pojo.GuidePojo">
+        select <include refid="Guide"/>
+        from Guide
+        where right_now =#{integer}
+    </select>
+
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描，扫描注解类(除了控制层) -->
+    <context:component-scan base-package="com.clxs.dao"/>
+
+    <!-- 加载资源文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 配置数据源 本项目使用c3p0连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <!-- c3po链接池的私有属性 -->
+        <property name="maxPoolSize" value="6"/>
+        <property name="initialPoolSize" value="9"/>
+        <property name="minPoolSize" value="3"/>
+
+        <!-- 关闭连接后不自动commit-->
+        <property name="autoCommitOnClose" value="false"/>
+
+        <!-- 获取链接超时时间 -->
+        <property name="checkoutTimeout" value="3000"/>
+
+        <!-- 当获取连接失败重试次数 -->
+        <property name="acquireRetryAttempts" value="3"/>
+
+    </bean>
+
+    <!-- myBatis的工厂类 -->
+    <bean id="SqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+
+        <property name="configuration">
+
+            <bean class="org.apache.ibatis.session.Configuration">
+                <!-- 可以使用驼峰命名 , 其它mybatis的配置也就是mybatis.cfg.xml的相关配置 -->
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+            </bean>
+
+        </property>
+
+    </bean>
+
+    <!-- 持久层接口 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.clxs.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="SqlSessionFactoryBean"/>
+    </bean>
+
+</beans>

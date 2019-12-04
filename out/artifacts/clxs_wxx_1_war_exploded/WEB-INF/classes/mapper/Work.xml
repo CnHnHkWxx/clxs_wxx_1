@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clxs.dao.WorkDao">
+
+    <sql id="Work">
+        id,right_now,new_time,new_id,update_time,update_id,name,introduction,img
+    </sql>
+
+    <select id="SelectByWorkId" resultType="com.clxs.dao.WorkDao">
+        select <include refid="Work"/>
+        from work
+        where id =#{integer}
+    </select>
+
+</mapper>

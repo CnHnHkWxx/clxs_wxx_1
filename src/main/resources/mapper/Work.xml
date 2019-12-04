@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--内容的持久层的接口的实现-->
+<mapper namespace="com.clxs.dao.WorkDao">
+
+    <sql id="Work">
+        id,right_now,new_time,new_id,update_time,update_id,name,introduction,img
+    </sql>
+
+<!--根据导航栏的内容ID查询对应的内容-->
+    <select id="SelectByWorkId" resultType="com.clxs.pojo.WorkPojo">
+        select <include refid="Work"/>
+        from work
+        where id =#{integer}
+    </select>
+
+<!--根据搜索栏的内容对名称和介绍进行模糊查询-->
+    <select id="SelectByAll" resultType="com.clxs.pojo.WorkPojo">
+        select <include refid="Work"/>
+        from work
+        where right_now = 1
+        and name like concat('%',#{name},'%')
+        or introduction like CONCAT('%',#{introduction},'%')
+    </select>
+
+</mapper>
