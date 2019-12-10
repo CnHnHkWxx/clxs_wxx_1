@@ -4,15 +4,27 @@
 <!--导航的持久层的接口的实现-->
 <mapper namespace="com.clxs.dao.GuideDao">
 
-    <sql id="Guide">
+    <resultMap id="GuideMap" type="com.clxs.pojo.GuidePojo">
+        <id property="id" column="id" />
+        <result property="pid" column="pid"/>
+        <result property="workId" column="work_id"/>
+        <result property="rightNow" column="right_now"/>
+        <result property="newTime" column="new_time"/>
+        <result property="newId" column="new_id"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateId" column="update_id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <sql id="GuideSql">
         id,pid,work_id,right_now,new_time,new_id,update_time,update_id,name
     </sql>
 
 <!--查询上架或下架的导航栏的内容-->
-    <select id="SelectByNow" resultType="com.clxs.pojo.GuidePojo">
-        select <include refid="Guide"/>
+    <select id="SelectByNow" resultMap="GuideMap">
+        select <include refid="GuideSql"/>
         from Guide
-        where right_now =#{integer}
+        where #{rightNow}
     </select>
 
 </mapper>

@@ -18,8 +18,8 @@ public class MessageServiceimpl implements MessageService {
 
 //    根据导航栏的内容ID查询对应的内容的留言
     @Override
-    public List<MessagePojo> SelectByWorkId(Integer integer) {
-        return messageDao.SelectByWorkId(integer);
+    public List<MessagePojo> SelectByWorkId(Integer workId) {
+        return messageDao.SelectByWorkId(workId);
     }
 
 //    游客增加留言

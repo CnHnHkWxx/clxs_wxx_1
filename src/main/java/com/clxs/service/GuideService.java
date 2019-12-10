@@ -10,6 +10,6 @@ import java.util.List;
 public interface GuideService {
 
 //    查询上架或下架的导航栏的内容
-    public List<GuidePojo> SelectByNow(Integer integer);
+    public List<GuidePojo> SelectByNow(Integer rightNow);
 
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 //控制层的接口和接口实现
@@ -81,29 +80,25 @@ public class FrontController {
         return map;
     }
 
-//    游客增加留言
-    @ResponseBody
-    @RequestMapping(value = "/Message" , method = RequestMethod.POST)
-    public boolean InsertByMessage(MessagePojo message){
-
-//        生成时间
-        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-        Date time = new Date(System.currentTimeMillis());
-
-        MessagePojo messagePojo = new MessagePojo();
-        messagePojo.setWork_id(message.getWork_id());
-        messagePojo.setRight_now(message.getRight_now());
-//        插入自己生成的时间，不需要前端生成，数据传输的安全性考虑。
-        messagePojo.setNew_time(formatter.format(time));
-//        插入自己生成的名称，不需要前端生成，数据传输的安全性考虑。
-        messagePojo.setNew_name(getUUID());
-        messagePojo.setUpdate_time(message.getUpdate_time());
-        messagePojo.setUpdate_id(message.getUpdate_id());
-        messagePojo.setContent(message.getContent());
-
-        boolean list = messageService.InsertByMessage(messagePojo);
-        return list;
-    }
+////    游客增加留言
+//    @ResponseBody
+//    @RequestMapping(value = "/Message" , method = RequestMethod.POST)
+//    public boolean InsertByMessage(MessagePojo message){
+//
+//        MessagePojo messagePojo = new MessagePojo();
+//        messagePojo.setWork_id(message.getWork_id());
+//        messagePojo.setRight_now(message.getRight_now());
+////        插入自己生成的时间，不需要前端生成，数据传输的安全性考虑。
+//        messagePojo.setNew_time(System.currentTimeMillis());
+////        插入自己生成的名称，不需要前端生成，数据传输的安全性考虑。
+//        messagePojo.setNew_name(getUUID());
+//        messagePojo.setUpdate_time(message.getUpdate_time());
+//        messagePojo.setUpdate_id(message.getUpdate_id());
+//        messagePojo.setContent(message.getContent());
+//
+//        boolean list = messageService.InsertByMessage(messagePojo);
+//        return list;
+//    }
 
 //    官方提供的随机生成名称的工具
     public static String getUUID(){

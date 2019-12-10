@@ -10,37 +10,37 @@ public class GuidePojo {
     private Integer pid;
 
     //    内容编号
-    private Integer work_id;
+    private Integer workId;
 
     //    上下架状态
-    private Integer right_now;
+    private Integer rightNow;
 
     //    创建时间
-    private Long new_time;
+    private Long newTime;
 
     //    创建人员
-    private Integer new_id;
+    private Integer newId;
 
     //    更新时间
-    private Long update_time;
+    private Long updateTime;
 
     //    更新人员
-    private Integer update_id;
+    private Integer updateId;
 
     //    名称
     private String name;
 
     @Override
     public String toString() {
-        return "IndexPojo{" +
+        return "GuidePojo{" +
                 "id=" + id +
                 ", pid=" + pid +
-                ", work_id=" + work_id +
-                ", right_now=" + right_now +
-                ", new_time=" + new_time +
-                ", new_id=" + new_id +
-                ", update_time=" + update_time +
-                ", update_id=" + update_id +
+                ", workId=" + workId +
+                ", rightNow=" + rightNow +
+                ", newTime=" + newTime +
+                ", newId=" + newId +
+                ", updateTime=" + updateTime +
+                ", updateId=" + updateId +
                 ", name='" + name + '\'' +
                 '}';
     }
@@ -61,52 +61,52 @@ public class GuidePojo {
         this.pid = pid;
     }
 
-    public Integer getWork_id() {
-        return work_id;
+    public Integer getWorkId() {
+        return workId;
     }
 
-    public void setWork_id(Integer work_id) {
-        this.work_id = work_id;
+    public void setWorkId(Integer workId) {
+        this.workId = workId;
     }
 
-    public Integer getRight_now() {
-        return right_now;
+    public Integer getRightNow() {
+        return rightNow;
     }
 
-    public void setRight_now(Integer right_now) {
-        this.right_now = right_now;
+    public void setRightNow(Integer rightNow) {
+        this.rightNow = rightNow;
     }
 
-    public Long getNew_time() {
-        return new_time;
+    public Long getNewTime() {
+        return newTime;
     }
 
-    public void setNew_time(Long new_time) {
-        this.new_time = new_time;
+    public void setNewTime(Long newTime) {
+        this.newTime = newTime;
     }
 
-    public Integer getNew_id() {
-        return new_id;
+    public Integer getNewId() {
+        return newId;
     }
 
-    public void setNew_id(Integer new_id) {
-        this.new_id = new_id;
+    public void setNewId(Integer newId) {
+        this.newId = newId;
     }
 
-    public Long getUpdate_time() {
-        return update_time;
+    public Long getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Long update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public Integer getUpdate_id() {
-        return update_id;
+    public Integer getUpdateId() {
+        return updateId;
     }
 
-    public void setUpdate_id(Integer update_id) {
-        this.update_id = update_id;
+    public void setUpdateId(Integer updateId) {
+        this.updateId = updateId;
     }
 
     public String getName() {
@@ -116,4 +116,5 @@ public class GuidePojo {
     public void setName(String name) {
         this.name = name;
     }
+
 }

@@ -16,7 +16,7 @@ public class BannerServiceTest {
 
     @Test
     public void selectByUp() {
-        System.out.println(bannerService.SelectByNow(1));
+            System.out.println(bannerService.SelectByNow(1));
     }
 
     @Test

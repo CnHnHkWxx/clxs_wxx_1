@@ -18,8 +18,8 @@ public class WorkServiceimpl implements WorkService {
 
 //    根据导航栏的内容ID查询对应的内容
     @Override
-    public List<WorkPojo> SelectByWorkId(Integer integer) {
-        return workDao.SelectByWorkId(integer);
+    public List<WorkPojo> SelectByWorkId(Integer id) {
+        return workDao.SelectByWorkId(id);
     }
 
 //    根据搜索栏的内容对名称和介绍进行模糊查询

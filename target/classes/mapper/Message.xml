@@ -4,15 +4,26 @@
 <!--留言的持久层的接口的实现-->
 <mapper namespace="com.clxs.dao.MessageDao">
 
-    <sql id="Message">
+    <resultMap id="MessageMap" type="com.clxs.pojo.MessagePojo">
+        <id property="id" column="id" />
+        <result property="workId" column="work_id"/>
+        <result property="rightNow" column="right_now"/>
+        <result property="newTime" column="new_time"/>
+        <result property="newName" column="new_name"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateId" column="update_id"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <sql id="MessageSql">
         id,work_id,right_now,new_time,new_name,update_time,update_id,content
     </sql>
 
 <!--根据导航栏的内容ID查询对应内容的留言-->
-    <select id="SelectByWorkId" resultType="com.clxs.pojo.MessagePojo">
-        select <include refid="Message"/>
+    <select id="SelectByWorkId" resultMap="MessageMap">
+        select <include refid="MessageSql"/>
         from Message
-        where work_id =#{integer}
+        where #{workId}
         and right_now = 1
     </select>
 
@@ -21,7 +32,7 @@
         insert into message
         (work_id,right_now,new_time,new_name,update_time,update_id,content)
         values
-        (#{work_id},#{right_now},#{new_time},#{new_name},#{update_time},#{update_id},#{content})
+        (#{workId},#{rightNow},#{newTime},#{newName},#{updateTime},#{updateId},#{content})
     </insert>
 
 </mapper>

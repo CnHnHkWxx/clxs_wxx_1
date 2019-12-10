@@ -18,8 +18,8 @@ public class BannerServiceimpl implements BannerService {
 
 //    查询上架或下架的轮播图
     @Override
-    public List<BannerPojo> SelectByNow(Integer integer) {
-        return bannerDao.SelectByNow(integer);
+    public List<BannerPojo> SelectByNow(Integer rightNow) {
+        return bannerDao.SelectByNow(rightNow);
     }
 
 }

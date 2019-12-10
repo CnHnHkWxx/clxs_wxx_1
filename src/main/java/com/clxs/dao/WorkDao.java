@@ -8,7 +8,7 @@ import java.util.List;
 public interface WorkDao {
 
 //    根据导航栏的内容ID查询对应内容
-    public List<WorkPojo> SelectByWorkId(Integer integer);
+    public List<WorkPojo> SelectByWorkId(Integer id);
 
 //    根据搜索栏的内容对名称和介绍进行模糊查询
     public List<WorkPojo> SelectByAll(String string);

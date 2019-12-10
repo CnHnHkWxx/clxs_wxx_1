@@ -8,6 +8,6 @@ import java.util.List;
 public interface BannerDao {
 
     //    查询上架或下架的轮播图
-    public List<BannerPojo> SelectByNow(Integer integer);
+    public List<BannerPojo> SelectByNow(Integer rightNow);
 
 }

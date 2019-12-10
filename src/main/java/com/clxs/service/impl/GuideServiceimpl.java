@@ -18,8 +18,8 @@ public class GuideServiceimpl implements GuideService {
 
 //    查询上架或下架的导航栏的内容
     @Override
-    public List<GuidePojo> SelectByNow(Integer integer) {
-        return guideDao.SelectByNow(integer);
+    public List<GuidePojo> SelectByNow(Integer rightNow) {
+        return guideDao.SelectByNow(rightNow);
     }
 
 }

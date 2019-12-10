@@ -4,15 +4,29 @@
 <!--轮播的持久层的接口的实现-->
 <mapper namespace="com.clxs.dao.BannerDao">
 
-    <sql id="Banner">
+<!--映射-->
+    <resultMap id="BannerMap" type="com.clxs.pojo.BannerPojo">
+        <id property="id" column="id" />
+        <result property="rightNow" column="right_now"/>
+        <result property="newTime" column="new_time"/>
+        <result property="newId" column="new_id"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateId" column="update_id"/>
+        <result property="name" column="name"/>
+        <result property="img" column="img"/>
+        <result property="url" column="url"/>
+    </resultMap>
+
+<!--字符块-->
+    <sql id="BannerSql">
         id,right_now,new_time,new_id,update_time,update_id,name,img,url
     </sql>
 
 <!--查询上架或下架的轮播图-->
-    <select id="SelectByNow" resultType="com.clxs.pojo.BannerPojo">
-        select <include refid="Banner"/>
+    <select id="SelectByNow" resultMap="BannerMap">
+        select <include refid="BannerSql"/>
         from banner
-        where right_now =#{integer}
+        where #{rightNow}
     </select>
 
 </mapper>

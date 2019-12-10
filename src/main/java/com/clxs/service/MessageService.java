@@ -10,7 +10,7 @@ import java.util.List;
 public interface MessageService {
 
 //    根据导航栏的内容ID查询对应的内容的留言
-    public List<MessagePojo> SelectByWorkId(Integer integer);
+    public List<MessagePojo> SelectByWorkId(Integer workId);
 
 //    游客增加留言
     public boolean InsertByMessage(MessagePojo message);
