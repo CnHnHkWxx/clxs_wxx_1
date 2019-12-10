@@ -4,6 +4,7 @@
 <!--留言的持久层的接口的实现-->
 <mapper namespace="com.clxs.dao.MessageDao">
 
+    <!--映射-->
     <resultMap id="MessageMap" type="com.clxs.pojo.MessagePojo">
         <id property="id" column="id" />
         <result property="workId" column="work_id"/>

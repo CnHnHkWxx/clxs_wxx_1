@@ -4,7 +4,7 @@
 <!--轮播的持久层的接口的实现-->
 <mapper namespace="com.clxs.dao.BannerDao">
 
-<!--映射-->
+    <!--映射-->
     <resultMap id="BannerMap" type="com.clxs.pojo.BannerPojo">
         <id property="id" column="id" />
         <result property="rightNow" column="right_now"/>
