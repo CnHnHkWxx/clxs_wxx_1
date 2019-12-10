@@ -40,16 +40,16 @@ public class FrontController {
 //    查询上架或下架的轮播图
     @ResponseBody
     @RequestMapping(value = "/Banner" , method = RequestMethod.GET)
-    public List<BannerPojo> SelectByBanner(@RequestParam Integer integer){
-        List<BannerPojo> list = bannerService.SelectByNow(integer);
+    public List<BannerPojo> SelectByBanner(@RequestParam Integer rightNow){
+        List<BannerPojo> list = bannerService.SelectByNow(rightNow);
         return list;
     }
 
 //    查询上架或下架的导航栏的内容
     @ResponseBody
     @RequestMapping(value = "/Guide" , method = RequestMethod.GET)
-    public List<GuidePojo> SelectByIndex(@RequestParam Integer integer){
-        List<GuidePojo> list = guideService.SelectByNow(integer);
+    public List<GuidePojo> SelectByIndex(@RequestParam Integer rightNow){
+        List<GuidePojo> list = guideService.SelectByNow(rightNow);
         return list;
     }
 
@@ -65,14 +65,14 @@ public class FrontController {
 //    根据导航栏的内容ID查询对应内容和对应内容的留言
     @ResponseBody
     @RequestMapping(value = "/Work" , method = RequestMethod.GET)
-    public Map<String,List> SelectByWork(@RequestParam Integer integer){
+    public Map<String,List> SelectByWork(@RequestParam Integer workId){
         Map<String,List> map = new HashMap<>();
         List A = new ArrayList<>();
         List B = new ArrayList<>();
         if (map !=null){
-            List AA = workService.SelectByWorkId(integer);
+            List AA = workService.SelectByWorkId(workId);
             A.addAll(AA);
-            List BB = messageService.SelectByWorkId(integer);
+            List BB = messageService.SelectByWorkId(workId);
             B.addAll(BB);
         }
         map.put("Work",A);
