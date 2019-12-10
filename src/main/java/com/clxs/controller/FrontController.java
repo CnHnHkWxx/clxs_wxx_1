@@ -80,25 +80,25 @@ public class FrontController {
         return map;
     }
 
-////    游客增加留言
-//    @ResponseBody
-//    @RequestMapping(value = "/Message" , method = RequestMethod.POST)
-//    public boolean InsertByMessage(MessagePojo message){
-//
-//        MessagePojo messagePojo = new MessagePojo();
-//        messagePojo.setWork_id(message.getWork_id());
-//        messagePojo.setRight_now(message.getRight_now());
-////        插入自己生成的时间，不需要前端生成，数据传输的安全性考虑。
-//        messagePojo.setNew_time(System.currentTimeMillis());
-////        插入自己生成的名称，不需要前端生成，数据传输的安全性考虑。
-//        messagePojo.setNew_name(getUUID());
-//        messagePojo.setUpdate_time(message.getUpdate_time());
-//        messagePojo.setUpdate_id(message.getUpdate_id());
-//        messagePojo.setContent(message.getContent());
-//
-//        boolean list = messageService.InsertByMessage(messagePojo);
-//        return list;
-//    }
+//    游客增加留言
+    @ResponseBody
+    @RequestMapping(value = "/Message" , method = RequestMethod.POST)
+    public boolean InsertByMessage(MessagePojo message){
+
+        MessagePojo messagePojo = new MessagePojo();
+        messagePojo.setWorkId(message.getWorkId());
+        messagePojo.setRightNow(message.getRightNow());
+//        插入自己生成的时间，不需要前端生成，数据传输的安全性考虑。
+        messagePojo.setNewTime(System.currentTimeMillis());
+//        插入自己生成的名称，不需要前端生成，数据传输的安全性考虑。
+        messagePojo.setNewName(getUUID());
+        messagePojo.setUpdateTime(message.getUpdateTime());
+        messagePojo.setUpdateId(message.getWorkId());
+        messagePojo.setContent(message.getContent());
+
+        boolean list = messageService.InsertByMessage(messagePojo);
+        return list;
+    }
 
 //    官方提供的随机生成名称的工具
     public static String getUUID(){
