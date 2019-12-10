@@ -56,8 +56,8 @@ public class FrontController {
 //    模糊查询内容的名称和介绍
     @ResponseBody
     @RequestMapping(value = "/All" , method = RequestMethod.GET)
-    public List<WorkPojo> SelectByAll(@RequestParam String string){
-        List<WorkPojo> list = workService.SelectByAll(string);
+    public List<WorkPojo> SelectByAll(@RequestParam String name){
+        List<WorkPojo> list = workService.SelectByAll(name);
         return list;
     }
 

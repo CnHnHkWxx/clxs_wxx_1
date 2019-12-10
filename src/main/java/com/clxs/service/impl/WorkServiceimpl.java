@@ -24,8 +24,8 @@ public class WorkServiceimpl implements WorkService {
 
 //    根据搜索栏的内容对名称和介绍进行模糊查询
     @Override
-    public List<WorkPojo> SelectByAll(String string){
-        return workDao.SelectByAll(string);
+    public List<WorkPojo> SelectByAll(String name){
+        return workDao.SelectByAll(name);
     }
 
 }

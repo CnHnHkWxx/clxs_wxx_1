@@ -13,6 +13,6 @@ public interface WorkService {
     public List<WorkPojo> SelectByWorkId(Integer id);
 
 //    根据搜索栏的内容对名称和介绍进行模糊查询
-    public List<WorkPojo> SelectByAll(String string);
+    public List<WorkPojo> SelectByAll(String name);
 
 }
