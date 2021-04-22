@@ -152,7 +152,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis</artifactId>
-      <version>3.4.6</version>
+      <version>3.5.6</version>
     </dependency>
 
     <!--mybatis分页依赖  ps:中国《mybatis从入门到精通》作者写的-->
